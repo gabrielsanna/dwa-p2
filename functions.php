@@ -27,9 +27,11 @@ foreach ($cmdOutput as $value) {
 }
 
 # Build a keyed array of data to output
-$resultArray = array(
-	"URL" => "$siteUrl"	
-);
+if (empty($siteUrl) == false) {
+	$resultArray = array(
+		"URL" => "$siteUrl"	
+	);
+}
 if ($pullData == "all" || $pullData == "webserver") {
 	$resultArray["Web server"] = $server;
 }
