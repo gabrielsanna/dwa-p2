@@ -3,7 +3,7 @@
 require 'helpers.php';
 
 # Get variables passed from the last page
-$siteUrl = $_GET['searchUrl'];
+$siteUrl = sanitize($_GET['searchUrl']);
 $webProtocol = $_GET['protocol'];
 $pullData = $_GET['dataToPull'];
 
