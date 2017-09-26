@@ -19,17 +19,17 @@
 		<form method='GET'>
 
 			<div class="form-group">
-	    		<label>Enter a web URL:</label>
+	    		<label>Enter a web URL (required):</label>
 	        	<input type='text' class="form-control" type="url" name='searchUrl' placeholder="www.example.com">
     		</div>
 
     		<div class="form-group">
     			<label for='querySelect'>What information would you like to query?</label>
 		    	<select class="form-control" name="dataToPull" id="querySelect">
+		    		<option value="all">All Information</option>
 					<option value="webserver">Type of Web Server</option>
 					<option value="ipaddress">IP Address</option>
 					<option value="setscookie">Does this page set a cookie?</option>
-					<option value="all">All Information</option>
 				</select>
 			</div>
 
