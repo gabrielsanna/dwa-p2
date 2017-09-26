@@ -7,27 +7,25 @@ require 'SiteScanner.php';
 use DWA\Form;
 use GSANNA\SiteScanner;
 
-# Get variables passed from the last page
-$siteUrl = sanitize($_GET['searchUrl']);
-$webProtocol = $_GET['protocol'];
-$pullData = $_GET['dataToPull'];
+$form = new Form($_GET);
+$resultArray = array();
 
-# Query the IP address; we'll just grab the first A record
-$dnsRecord = dns_get_record($siteUrl, DNS_A);
-$ipAddress = $dnsRecord[0]['ip'];
+if ($form->isSubmitted()) {
+	# Get variables from $form
+	$searchUrl = $form->get('searchUrl');
+	$protocol = $form->get('protocol');
+	$dataToPull = $form->get('dataToPull');
 
-# Build a keyed array of data to output
-if (empty($siteUrl) == false) {
-	$resultArray = array(
-		"URL" => "$siteUrl"	
-	);
-}
-if ($pullData == "all" || $pullData == "webserver") {
-	$resultArray["Web server"] = $server;
-}
-if ($pullData == "all" || $pullData == "ipaddress") {
-	$resultArray["IP address"] = $ipAddress;
-}
-if ($pullData == "all" || $pullData == "setscookie") {
-	$resultArray["Sets cookie"] = $cookie;
+	# Validate
+	$errors = $form->validate([
+		'searchUrl' => 'required|url'
+	]);
+
+	if (empty($errors)) {
+		$scanner = new SiteScanner($searchUrl, $protocol, $dataToPull);
+
+		$resultArray = $scanner->get_array();
+	} else {
+		var_dump($errors);
+	}
 }

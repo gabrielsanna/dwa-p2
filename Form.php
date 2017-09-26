@@ -242,7 +242,18 @@ class Form
     */
     protected function url($value)
     {
-        return filter_var($value, FILTER_VALIDATE_URL);
+        #return filter_var($value, FILTER_VALIDATE_URL);
+
+        $pattern = '/(?:https?:\/\/)?(?:[a-zA-Z0-9.-]+?\.(?:[a-zA-Z])|\d+\.\d+\.\d+\.\d+)/';
+
+        if(preg_match($pattern, $value))
+        {
+            $result = true;
+        } else {
+            $result = false;
+        }
+
+        return $result;
     }
 
     /**
