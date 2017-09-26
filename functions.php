@@ -1,6 +1,7 @@
 <?php
 
 require 'helpers.php';
+require 'Form.php'
 
 # Get variables passed from the last page
 $siteUrl = sanitize($_GET['searchUrl']);
