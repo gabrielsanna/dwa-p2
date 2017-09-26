@@ -125,7 +125,7 @@ class Form
     *
     * Stops after the first error for a given field
     *
-    * Available rules: alphaNumeric, alpha, numeric, required, email, min:x, max:x
+    * Available rules: alphaNumeric, alpha, numeric, required, email, url, min:x, max:x
     */
     public function validate($fieldsToValidate)
     {
@@ -237,6 +237,13 @@ class Form
         return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
 
+    /**
+    * Returns boolean if the given value is a valid web URL
+    */
+    protected function url($value)
+    {
+        return filter_var($value, FILTER_VALIDATE_URL);
+    }
 
     /**
     * Returns value if the given value is GREATER THAN (non-inclusive) the given parameter
