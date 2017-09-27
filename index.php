@@ -51,6 +51,16 @@
 
 		</form>
 
+		<?php if (empty($errors) == false) : ?>
+        	<div class='alert alert-danger'>
+           		<ul>
+               		<?php foreach ($errors as $error) : ?>
+                   	<li><?=$error?></li>
+               		<?php endforeach; ?>
+           		</ul>
+        	</div>
+    	<?php endif ?>
+
 		<table class="table">
 		<?php foreach ($resultArray as $resultKey => $resultValue) : ?>
 	        <tr>

@@ -76,6 +76,10 @@ class SiteScanner
 			}
     	}
 
+    	if (isset($server) == false) {
+    		$server = "Unknown";
+    	}
+
     	return $server;
     }
 

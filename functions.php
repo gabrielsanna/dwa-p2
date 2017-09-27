@@ -1,6 +1,5 @@
 <?php
 
-require 'helpers.php';
 require 'Form.php';
 require 'SiteScanner.php';
 
@@ -25,7 +24,5 @@ if ($form->isSubmitted()) {
 		$scanner = new SiteScanner($searchUrl, $protocol, $dataToPull);
 
 		$resultArray = $scanner->get_array();
-	} else {
-		var_dump($errors);
 	}
 }
