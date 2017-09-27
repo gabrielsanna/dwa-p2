@@ -20,7 +20,7 @@
 
 			<div class="form-group">
 	    		<label>Enter a web URL (required):</label>
-	        	<input type='text' class="form-control" type="url" name='searchUrl' placeholder="www.example.com">
+	        	<input type='text' class="form-control" name='searchUrl' placeholder="www.example.com">
     		</div>
 
     		<div class="form-group">
